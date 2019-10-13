@@ -25,7 +25,10 @@ This will retrive the package
 goos: darwin
 goarch: amd64
 pkg: github.com/g8rswimmer/fast-hashmap
+
 BenchmarkPut-8   	   20000	     63940 ns/op	   69632 B/op	     769 allocs/op
+BenchmarkBasePut-8   	   20000	    100926 ns/op	  122098 B/op	      39 allocs/op
 
 BenchmarkGet-8   	10000000	       207 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBaseGet-8   	10000000	       197 ns/op	       0 B/op	       0 allocs/op
 ```
