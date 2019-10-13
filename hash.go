@@ -51,21 +51,16 @@ func (h *HashMap) Put(k int, v interface{}) error {
 	}
 	idx := k & 0x3FF
 	list := h.table[idx]
-	switch len(list) {
-	case 0:
+	found := false
+	for i, en := range list {
+		if en.key == k {
+			list[i] = e
+			found = true
+			break
+		}
+	}
+	if found == false {
 		list = append(list, e)
-	default:
-		found := false
-		for i, en := range list {
-			if en.key == k {
-				list[i] = e
-				found = true
-				break
-			}
-		}
-		if found == false {
-			list = append(list, e)
-		}
 	}
 	h.table[idx] = list
 	return nil
